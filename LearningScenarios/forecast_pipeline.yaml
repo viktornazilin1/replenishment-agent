@@ -1,19 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: WorkflowTemplate
 metadata:
-  name: forecast-pipeline-viktor-1804
+  name: forecast-pipeline-viktor
   annotations:
-    scenarios.ai.sap.com/name: "XGB Forecasting"
-    scenarios.ai.sap.com/description: "AI Core pipeline for XGBoost batch prediction"
-    executables.ai.sap.com/name: "Forecast Executable"
-    executables.ai.sap.com/description: "Predict demand for selected material/store"
+    scenarios.ai.sap.com/name: "Forecasting Demo"
+    scenarios.ai.sap.com/description: "Run XGBoost forecasting in AI Core"
+    executables.ai.sap.com/name: "Batch Forecast"
+    executables.ai.sap.com/description: "Forecast for all products and stores"
   labels:
-    scenarios.ai.sap.com/id: "xgb"
+    scenarios.ai.sap.com/id: "forecasting"
     ai.sap.com/version: "1.0"
 spec:
-  entrypoint: run-forecast
+  entrypoint: run
   templates:
-    - name: run-forecast
+    - name: run
       container:
         image: docker.io/viktornazilin1/xgboost-forecasting:latest
         command: ["python"]
