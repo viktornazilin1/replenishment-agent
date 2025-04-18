@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: WorkflowTemplate
 metadata:
-  name: forecast-pipeline-viktor
+  name: forecast-pipeline-viktor-1
   annotations:
     scenarios.ai.sap.com/name: "XGB Forecasting"
     scenarios.ai.sap.com/description: "AI Core pipeline for XGBoost batch prediction"
