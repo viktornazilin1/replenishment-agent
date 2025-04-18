@@ -1,5 +1,6 @@
-
-flask
+pandas
 joblib
 xgboost
-pandas
+flask
+flask-cors
+hdbcli
