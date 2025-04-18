@@ -1,0 +1,12 @@
+
+apiVersion: ai.sap.com/v1alpha1
+kind: ServingTemplate
+metadata:
+  name: xgboost-forecasting-deployment
+spec:
+  image: docker.io/viktornazilin1/xgboost-forecasting:latest
+  ports:
+    - containerPort: 8080
+  entrypoint:
+    command: ["python"]
+    args: ["serve.py"]

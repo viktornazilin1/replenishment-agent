@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Autonomous Replenishment Agent</title>
+    <script type="module" src="/main.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ui5/webcomponents@1.23.0/dist/bundle.esm.js"></script>
+    <style>
+      body {
+        font-family: "72", sans-serif;
+        padding: 2rem;
+        background-color: #f7f7f7;
+      }
+      .container {
+        max-width: 900px;
+        margin: auto;
+        padding: 2rem;
+        background-color: white;
+        border-radius: 1rem;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      ui5-button {
+        margin-top: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <ui5-card heading="Прогноз пополнения">
+        <div class="fiori-section">
+          <ui5-label for="materialSelect">Товар:</ui5-label>
+          <ui5-select id="materialSelect"></ui5-select>
+
+          <ui5-label for="storeSelect">Магазин:</ui5-label>
+          <ui5-select id="storeSelect"></ui5-select>
+
+          <ui5-label for="analysisType">Тип анализа:</ui5-label>
+          <ui5-select id="analysisType">
+            <ui5-option selected>Только спрос</ui5-option>
+            <ui5-option>Спрос + Погода</ui5-option>
+            <ui5-option>Спрос + Погода + Праздники + Промо</ui5-option>
+          </ui5-select>
+
+          <br /><br />
+          <ui5-button design="Emphasized" id="submitBtn">Запустить прогноз</ui5-button>
+        </div>
+      </ui5-card>
+
+      <ui5-card id="resultCard" heading="Результаты прогноза" style="display: none;">
+        <div class="fiori-section">
+          <div id="forecastLabel"></div>
+          <div id="forecastTableDiv" style="margin-top: 1rem;"></div>
+          <img id="forecastPlotImg" style="display:none; max-width:100%; margin-top:1rem;" />
+        </div>
+      </ui5-card>
+    </div>
+  </body>
+</html>

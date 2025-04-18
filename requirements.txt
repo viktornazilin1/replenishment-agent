@@ -1,0 +1,9 @@
+Flask
+flask-cors
+pandas
+sqlalchemy
+hdbcli
+sqlalchemy-hana
+prophet
+requests
+plotly==5.20.0

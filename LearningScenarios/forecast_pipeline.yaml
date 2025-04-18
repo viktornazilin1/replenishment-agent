@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: forecast-pipeline-viktor     # УНИКАЛЬНОЕ имя! поменяй при необходимости
+  annotations:
+    scenarios.ai.sap.com/name: "Forecasting Demo"
+    scenarios.ai.sap.com/description: "XGBoost-based demand forecasting"
+    executables.ai.sap.com/name: "XGB Forecast"
+    executables.ai.sap.com/description: "Run forecast in container"
+  labels:
+    scenarios.ai.sap.com/id: "forecasting"
+    ai.sap.com/version: "1.0"
+spec:
+  entrypoint: run-forecast
+  templates:
+    - name: run-forecast
+      container:
+        image: docker.io/viktornazilin1/xgboost-forecasting:latest  # 🔁 замени на свой образ
+        command:
+          - python
+        args:
+          - serve.py

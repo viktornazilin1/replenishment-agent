@@ -1,0 +1,7 @@
+---
+applications:
+  - name: autonomous-replenishment-agent
+    memory: 1G
+    buildpacks:
+      - python_buildpack
+    command: python -m app.main

@@ -1,0 +1,21 @@
+apiVersion: ai.sap.com/v1alpha1
+kind: ServingScenario
+metadata:
+  name: xgboost-forecasting
+spec:
+  displayName: XGBoost Forecasting Model
+  description: Serve XGBoost model for demand forecasting
+  input:
+    type: openapi
+    openapi:
+      request:
+        application/json:
+          schema:
+            type: object
+            properties:
+              instances:
+                type: array
+                items:
+                  type: object
+  output:
+    type: openapi
