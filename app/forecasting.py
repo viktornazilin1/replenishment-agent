@@ -7,7 +7,7 @@ from app.weather_api import get_weather_forecast
 
 # Загрузка XGBoost модели
 try:
-    xgb_model = joblib.load("app/xgb_model.joblib")
+    xgb_model = joblib.load("xgb_model.joblib")
 except Exception as e:
     xgb_model = None
     print("❌ Ошибка загрузки модели:", e)
