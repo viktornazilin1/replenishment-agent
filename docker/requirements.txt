@@ -4,3 +4,5 @@ xgboost
 flask
 flask-cors
 hdbcli
+sqlalchemy
+requests
