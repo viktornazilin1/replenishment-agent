@@ -1,8 +1,40 @@
 from app.hana_data_loader import load_data_from_hana
 from app.forecasting import run_forecast_logic
 import pandas as pd
+from hdbcli import dbapi
+from datetime import datetime
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 analysis_type = "XGBoost"
+
+def insert_to_hana(result, material_id, store_id):
+    conn = dbapi.connect(
+        address=os.getenv("HANA_HOST"),
+        port=int(os.getenv("HANA_PORT", 443)),
+        user=os.getenv("HANA_USER"),
+        password=os.getenv("HANA_PASSWORD")
+    )
+    cursor = conn.cursor()
+    cursor.execute("""
+        INSERT INTO FORECAST_RESULTS (
+            material_id, store_id, forecast_date,
+            predicted_demand, current_stock, suggested_qty, run_timestamp
+        )
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+    """, (
+        material_id,
+        store_id,
+        datetime.today().date(),
+        result.get("predicted_demand"),
+        result.get("current_stock"),
+        result.get("suggested_qty"),
+        datetime.now()
+    ))
+    conn.commit()
+    conn.close()
 
 print(f"🚀 Старт batch-пайплайна в SAP AI Core (анализ по всем товарам и магазинам)")
 print(f"▶️ Тип анализа: {analysis_type}")
@@ -31,9 +63,11 @@ try:
                     stores=stores,
                     holidays=holidays,
                     promotions=promotions
+                
                 )
-
+                
                 print(f"  🔮 Прогноз: {result.get('predicted_demand')} | Остаток: {result.get('current_stock')} | Пополнить: {result.get('suggested_qty')}")
+                insert_to_hana(result, material_id, store_id)
 
             except Exception as e:
                 print(f"  ⚠️ Ошибка прогноза: {e}")
