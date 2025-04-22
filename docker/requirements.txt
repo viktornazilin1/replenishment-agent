@@ -3,7 +3,8 @@ joblib
 xgboost
 flask
 flask-cors
-hdbcli
 sqlalchemy
 sqlalchemy-hana
 requests
+hdbcli
+python-dotenv
