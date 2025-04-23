@@ -1,2 +1,11 @@
 .env
 ai_core_sdk.ipynb
+env
+__pycache__/
+*.pyc
+*.joblib
+.vscode/
+.idea/
+node_modules/
+static/
+*.db

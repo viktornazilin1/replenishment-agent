@@ -1,2 +1,3 @@
-declare const _default: "[draggable=true]{cursor:grab!important}[draggable=true][data-moving]{cursor:grabbing!important;opacity:var(--sapContent_DisabledOpacity)}\n";
-export default _default;
+import type { StyleData } from "@ui5/webcomponents-base/dist/types.js";
+declare const styleData: StyleData;
+export default styleData;

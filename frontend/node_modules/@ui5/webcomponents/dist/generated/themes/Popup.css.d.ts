@@ -1,2 +1,3 @@
-declare const _default: ":host{min-width:1px;overflow:visible;border:none;inset:unset;margin:0;padding:0}\n";
-export default _default;
+import type { StyleData } from "@ui5/webcomponents-base/dist/types.js";
+declare const styleData: StyleData;
+export default styleData;

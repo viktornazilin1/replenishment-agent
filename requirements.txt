@@ -6,4 +6,6 @@ hdbcli
 sqlalchemy-hana
 prophet
 requests
+joblib
 plotly==5.20.0
+python-dotenv

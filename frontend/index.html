@@ -1,11 +1,16 @@
-
 <!DOCTYPE html>
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <title>Autonomous Replenishment Agent</title>
+
+    <!-- ✅ UI5 Web Components -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ui5/webcomponents@1.23.0/dist/Assets.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ui5/webcomponents-fiori@1.23.0/dist/Assets.js"></script>
+
+    <!-- 🧠 Основной frontend -->
     <script type="module" src="/main.js"></script>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@ui5/webcomponents@1.23.0/dist/bundle.esm.js"></script>
+
     <style>
       body {
         font-family: "72", sans-serif;
@@ -51,7 +56,12 @@
         <div class="fiori-section">
           <div id="forecastLabel"></div>
           <div id="forecastTableDiv" style="margin-top: 1rem;"></div>
-          <img id="forecastPlotImg" style="display:none; max-width:100%; margin-top:1rem;" />
+          <canvas id="forecastChart" style="max-width: 100%; margin-top: 1rem; display: none;"></canvas>
+
+          <!-- 🆕 Кнопка для создания заявки -->
+          <ui5-button id="createOrderBtn" design="Positive" style="display:none;">
+            Создать заявку на закупку
+          </ui5-button>
         </div>
       </ui5-card>
     </div>

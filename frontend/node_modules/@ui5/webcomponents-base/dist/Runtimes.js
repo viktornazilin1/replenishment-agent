@@ -1,5 +1,3 @@
-import { getAllRegisteredTags } from "./CustomElementsRegistry.js";
-import { getCustomElementsScopingRules, getCustomElementsScopingSuffix } from "./CustomElementsScopeUtils.js";
 import VersionInfo from "./generated/VersionInfo.js";
 import getSharedResource from "./getSharedResource.js";
 let currentRuntimeIndex;
@@ -20,15 +18,6 @@ const registerCurrentRuntime = () => {
         const versionInfo = VersionInfo;
         Runtimes.push({
             ...versionInfo,
-            get scopingSuffix() {
-                return getCustomElementsScopingSuffix();
-            },
-            get registeredTags() {
-                return getAllRegisteredTags();
-            },
-            get scopingRules() {
-                return getCustomElementsScopingRules();
-            },
             alias: currentRuntimeAlias,
             description: `Runtime ${currentRuntimeIndex} - ver ${versionInfo.version}${currentRuntimeAlias ? ` (${currentRuntimeAlias})` : ""}`,
         });
