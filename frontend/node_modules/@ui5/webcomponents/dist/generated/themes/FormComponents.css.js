@@ -3,6 +3,7 @@ import defaultThemeBase from "@ui5/webcomponents-theming/dist/generated/themes/s
 import defaultTheme from "./sap_horizon/parameters-bundle.css.js";
 registerThemePropertiesLoader("@ui5/webcomponents-theming", "sap_horizon", async () => defaultThemeBase);
 registerThemePropertiesLoader("@ui5/webcomponents", "sap_horizon", async () => defaultTheme);
-export default `:host{vertical-align:middle}
-`;
+const styleData = { packageName: "@ui5/webcomponents", fileName: "themes/FormComponents.css.ts", content: `:host{vertical-align:middle}
+` };
+export default styleData;
 //# sourceMappingURL=FormComponents.css.js.map

@@ -1,14 +1,10 @@
 import { getNoConflict as getConfiguredNoConflict } from "../InitialConfiguration.js";
-import { attachConfigurationReset } from "./ConfigurationReset.js";
 // Fire these events even with noConflict: true
 const excludeList = [
     "value-changed",
     "click",
 ];
 let noConflict;
-attachConfigurationReset(() => {
-    noConflict = undefined;
-});
 const shouldFireOriginalEvent = (eventName) => {
     return excludeList.includes(eventName);
 };

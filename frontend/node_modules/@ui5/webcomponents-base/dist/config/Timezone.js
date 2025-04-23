@@ -1,9 +1,5 @@
 import { getTimezone as getConfiguredTimezone } from "../InitialConfiguration.js";
-import { attachConfigurationReset } from "./ConfigurationReset.js";
 let currTimezone;
-attachConfigurationReset(() => {
-    currTimezone = undefined;
-});
 /**
  * Returns the configured IANA timezone ID.
  *

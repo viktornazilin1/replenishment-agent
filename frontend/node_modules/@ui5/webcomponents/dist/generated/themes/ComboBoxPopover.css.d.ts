@@ -1,2 +1,3 @@
-declare const _default: ".ui5-combobox-busy{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:42;display:flex;justify-content:center;align-items:center;pointer-events:all;width:100%}.ui5-combobox-busy:not([active]){display:none}\n";
-export default _default;
+import type { StyleData } from "@ui5/webcomponents-base/dist/types.js";
+declare const styleData: StyleData;
+export default styleData;

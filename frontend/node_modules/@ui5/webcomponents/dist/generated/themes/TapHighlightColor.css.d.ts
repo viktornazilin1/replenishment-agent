@@ -1,2 +1,3 @@
-declare const _default: ":host{-webkit-tap-highlight-color:rgba(0,0,0,0)}\n";
-export default _default;
+import type { StyleData } from "@ui5/webcomponents-base/dist/types.js";
+declare const styleData: StyleData;
+export default styleData;

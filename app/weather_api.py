@@ -1,16 +1,9 @@
 import requests
 from datetime import datetime
 
-def get_user_location():
+def get_weather_forecast_by_coords(lat, lon, api_key):
     try:
-        res = requests.get("https://ipinfo.io").json()
-        return res["city"], res["region"], res["country"]
-    except Exception as e:
-        return "Unknown", "Unknown", "Unknown"
-
-def get_weather_forecast(city, api_key):
-    try:
-        url = f"http://api.openweathermap.org/data/2.5/forecast?q={city}&appid={api_key}&units=metric"
+        url = f"http://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={api_key}&units=metric"
         res = requests.get(url).json()
         forecast = {}
         for entry in res.get("list", []):

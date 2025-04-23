@@ -4,9 +4,4 @@ declare const findClosestPosition: (elements: Array<HTMLElement>, point: number,
     element: HTMLElement;
     placements: MovePlacement[];
 } | null;
-declare const findClosestPositionsByKey: (elements: Array<HTMLElement>, element: HTMLElement, e: KeyboardEvent) => {
-    element: HTMLElement;
-    placement: MovePlacement;
-}[];
-declare const isMovingKey: (key: string) => boolean;
-export { findClosestPosition, findClosestPositionsByKey, isMovingKey, };
+export default findClosestPosition;

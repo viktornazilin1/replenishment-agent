@@ -13,7 +13,6 @@ type ColorRGB = {
     g: number;
 };
 declare const getRGBColor: (color: string) => ColorRGB;
-declare const getAlpha: (color: string) => number;
 /**
  * Return an object with the properties for each of the main colors(red, green, blue)
  * @param {String} color Receives a color in the following format: "rgb(0, 0, 0)
@@ -27,5 +26,5 @@ declare const HEXToRGB: (hex: string) => ColorRGB;
  */
 declare const RGBtoHEX: (color: ColorRGB) => string;
 declare const RGBToHSL: (color: ColorRGB) => ColorHSL;
-export { getRGBColor, getAlpha, HSLToRGB, HEXToRGB, RGBToHSL, RGBStringToRGBObject, RGBtoHEX, };
+export { getRGBColor, HSLToRGB, HEXToRGB, RGBToHSL, RGBStringToRGBObject, RGBtoHEX, };
 export type { ColorHSL, ColorRGB, };
